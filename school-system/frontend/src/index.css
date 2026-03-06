@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Sora:wght@600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Base ──────────────────────────────────────────────────────────────────── */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; -webkit-font-smoothing: antialiased; }
+
+/* ─── Scrollbar ──────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #0f172a; }
+::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #475569; }
+html.light ::-webkit-scrollbar-track { background: #e2e8f0; }
+html.light ::-webkit-scrollbar-thumb { background: #94a3b8; }
+
+/* ─── DARK MODE (default) ────────────────────────────────────────────────────── */
+body, html {
+  background: #020617;
+  color: #f1f5f9;
+}
+
+/* ─── LIGHT MODE overrides ───────────────────────────────────────────────────── */
+/* Every bg-slate-* and text-slate-* class is overridden below when html.light */
+
+html.light body { background: #f1f5f9 !important; color: #0f172a !important; }
+
+/* Backgrounds */
+html.light .bg-slate-950 { background-color: #f1f5f9 !important; }
+html.light .bg-slate-900 { background-color: #ffffff !important; }
+html.light .bg-slate-800 { background-color: #f8fafc !important; }
+html.light .bg-slate-800\/60 { background-color: rgba(248,250,252,0.6) !important; }
+html.light .bg-slate-800\/40 { background-color: rgba(248,250,252,0.4) !important; }
+html.light .bg-slate-800\/30 { background-color: rgba(248,250,252,0.3) !important; }
+html.light .bg-slate-900\/80 { background-color: rgba(255,255,255,0.9) !important; }
+html.light .bg-slate-900\/50 { background-color: rgba(255,255,255,0.5) !important; }
+
+/* Text */
+html.light .text-white  { color: #0f172a !important; }
+html.light .text-slate-100 { color: #0f172a !important; }
+html.light .text-slate-200 { color: #1e293b !important; }
+html.light .text-slate-300 { color: #334155 !important; }
+html.light .text-slate-400 { color: #475569 !important; }
+html.light .text-slate-500 { color: #64748b !important; }
+html.light .text-slate-600 { color: #94a3b8 !important; }
+
+/* Borders */
+html.light .border-slate-700    { border-color: #cbd5e1 !important; }
+html.light .border-slate-700\/50 { border-color: rgba(203,213,225,0.7) !important; }
+html.light .border-slate-800    { border-color: #e2e8f0 !important; }
+html.light .divide-slate-700\/30 > * + * { border-color: rgba(203,213,225,0.4) !important; }
+html.light .divide-slate-800 > * + * { border-color: #e2e8f0 !important; }
+html.light .border-slate-700\/60 { border-color: rgba(203,213,225,0.6) !important; }
+
+/* Hover backgrounds */
+html.light .hover\:bg-slate-700\/60:hover { background-color: rgba(241,245,249,0.8) !important; color: #0f172a !important; }
+html.light .hover\:bg-slate-700:hover     { background-color: #e2e8f0 !important; }
+html.light .hover\:bg-slate-800:hover     { background-color: #f1f5f9 !important; }
+html.light .hover\:bg-slate-800\/30:hover { background-color: rgba(241,245,249,0.5) !important; }
+html.light .hover\:bg-slate-600:hover     { background-color: #cbd5e1 !important; }
+
+/* Inputs & selects - crucial for forms */
+html.light input:not([type=submit]):not([type=button]):not([type=checkbox]):not([type=radio]),
+html.light select,
+html.light textarea {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+html.light input::placeholder,
+html.light textarea::placeholder { color: #94a3b8 !important; }
+
+/* Nav active item stays indigo */
+html.light .bg-indigo-600 { background-color: #4f46e5 !important; }
+html.light .bg-indigo-600 .text-white,
+html.light .bg-indigo-600 span { color: #ffffff !important; }
+
+/* Gradient backgrounds - keep as is */
+html.light [class*="bg-gradient"] { /* keep original gradient */ }
+
+/* Animated pulse placeholders */
+html.light .animate-pulse.bg-slate-900 { background-color: #e2e8f0 !important; }
+
+/* Table rows in light mode */
+html.light tbody tr:hover { background-color: #f1f5f9 !important; }
+
+/* Recharts in light mode */
+html.light .recharts-text { fill: #475569 !important; }
+html.light .recharts-cartesian-axis-line { stroke: #cbd5e1 !important; }
+html.light .recharts-cartesian-grid-horizontal line,
+html.light .recharts-cartesian-grid-vertical line { stroke: #e2e8f0 !important; }
+
+/* ─── ADDITIONAL light mode overrides for modals & cards ──────────────────── */
+html.light [class*="bg-slate-9"],
+html.light [class*="bg-slate-8"] {
+  background-color: revert;
+}
+
+/* Force specific repaints in light mode */
+html.light .rounded-2xl.border,
+html.light .rounded-xl.border {
+  background-color: #ffffff;
+  border-color: rgba(203,213,225,0.7);
+}
+
+html.light header,
+html.light aside,
+html.light nav {
+  background-color: #ffffff !important;
+  border-color: rgba(203,213,225,0.7) !important;
+}
+
+html.light main {
+  background-color: #f1f5f9 !important;
+}
+
+/* Text in light mode - broad coverage */
+html.light h1, html.light h2, html.light h3, html.light h4 {
+  color: #0f172a;
+}
+html.light p, html.light span:not([class*="text-indigo"]):not([class*="text-red"]):not([class*="text-green"]):not([class*="text-amber"]):not([class*="text-purple"]):not([class*="text-blue"]):not([class*="text-orange"]):not([class*="text-yellow"]) {
+  color: inherit;
+}
+
+/* Table in light mode */
+html.light table { border-color: rgba(203,213,225,0.7); }
+html.light thead { background-color: #f8fafc !important; }
+html.light thead th { color: #475569 !important; }
+html.light tbody td { color: #1e293b !important; border-color: rgba(203,213,225,0.4) !important; }
+
+/* Button override for non-colored buttons */
+html.light button.bg-slate-800 { background-color: #f1f5f9 !important; color: #1e293b !important; }
+html.light button.bg-slate-700 { background-color: #e2e8f0 !important; }
+html.light button:hover.bg-slate-800 { background-color: #e2e8f0 !important; }
+
+/* Charts in light mode */
+html.light .recharts-surface text { fill: #475569 !important; }
+html.light .recharts-layer.recharts-cartesian-axis-tick text { fill: #64748b !important; }
