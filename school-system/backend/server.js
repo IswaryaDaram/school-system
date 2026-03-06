@@ -14,11 +14,19 @@ app.set('trust proxy', 1);
 
 // ─── Security Middleware ───────────────────────────────────────────────────────
 app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }));
+//app.use(cors({
+ // origin: process.env.CLIENT_URL || 'http://localhost:3000',
+ // credentials: true,
+ // methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+ // allowedHeaders: ['Content-Type', 'Authorization']
+//}));
+
 app.use(cors({
-  origin: process.env.CLIENT_URL || 'http://localhost:3000',
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  origin: [
+    'http://localhost:5173',
+    process.env.CLIENT_URL
+  ],
+  credentials: true
 }));
 
 // ─── Rate Limiting ─────────────────────────────────────────────────────────────
